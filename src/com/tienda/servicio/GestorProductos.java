@@ -4,10 +4,7 @@ import com.tienda.modelo.Producto;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Gestor de Productos - Maneja todas las operaciones con productos
- * Módulo: PRODUCTOS
- */
+
 public class GestorProductos {
     private List<Producto> productos;
     private int proximoId;
@@ -22,17 +19,17 @@ public class GestorProductos {
      */
     public void registrarProducto(String nombre, double precio) {
         if (nombre == null || nombre.trim().isEmpty()) {
-            System.out.println("❌ Error: El nombre del producto no puede estar vacío");
+            System.out.println("Error: El nombre del producto no puede estar vacío");
             return;
         }
         if (precio < 0) {
-            System.out.println("❌ Error: El precio no puede ser negativo");
+            System.out.println("Error: El precio no puede ser negativo");
             return;
         }
         
         Producto producto = new Producto(proximoId++, nombre, precio);
         productos.add(producto);
-        System.out.println("✅ Producto registrado: " + producto);
+        System.out.println("Producto registrado: " + producto);
     }
 
     /**
@@ -59,10 +56,10 @@ public class GestorProductos {
      */
     public void mostrarProductos() {
         if (productos.isEmpty()) {
-            System.out.println("📦 No hay productos registrados aún");
+            System.out.println("No hay productos registrados aún");
             return;
         }
-        System.out.println("\n📦 === PRODUCTOS DISPONIBLES ===");
+        System.out.println("\n=== PRODUCTOS DISPONIBLES ===");
         for (Producto p : productos) {
             System.out.println(p);
         }
