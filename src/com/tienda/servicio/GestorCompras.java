@@ -15,7 +15,7 @@ public class GestorCompras {
         this.historialCompras = new ArrayList<>();
     }
 
-    /**
+    /*
      * Calcula el total de una compra basada en los productos seleccionados
      */
     public double calcularTotal(List<Producto> items) {
@@ -27,7 +27,7 @@ public class GestorCompras {
                    .sum();
     }
 
-    /**
+    /*
      * Calcula el total con cantidad de unidades por producto
      */
     public double calcularTotalConCantidades(List<Producto> items, List<Integer> cantidades) {
@@ -42,7 +42,7 @@ public class GestorCompras {
         return total;
     }
 
-    /**
+    /*
      * Registra una compra en el historial
      */
     public void registrarCompra(List<Producto> items, double total) {
@@ -53,14 +53,14 @@ public class GestorCompras {
         }
     }
 
-    /**
+    /*
      * Obtiene el historial de todas las compras
      */
     public List<Compra> obtenerHistorial() {
         return new ArrayList<>(historialCompras);
     }
 
-    /**
+    /*
      * Muestra el historial de compras
      */
     public void mostrarHistorial() {
@@ -75,7 +75,7 @@ public class GestorCompras {
         System.out.println("================================\n");
     }
 
-    /**
+    /*
      * Calcula el total de ventas
      */
     public double calcularTotalVentas() {
@@ -84,7 +84,7 @@ public class GestorCompras {
                               .sum();
     }
 
-    /**
+    /*
      * Clase representa una compra
      */
     public class Compra {
