@@ -6,10 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Gestor de Compras - Maneja el cálculo y registro de compras
- * Módulo: COMPRAS
- */
 public class GestorCompras {
     private GestorProductos gestorProductos;
     private List<Compra> historialCompras;
@@ -89,7 +85,7 @@ public class GestorCompras {
     }
 
     /**
-     * Clase interna para representar una compra
+     * Clase representa una compra
      */
     public class Compra {
         private List<Producto> items;
