@@ -7,10 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Interfaz de Usuario - Menú Principal de la Tienda Escolar
- * Módulo: INTERFAZ
- */
 public class MenuPrincipal {
     private GestorProductos gestorProductos;
     private GestorCompras gestorCompras;
@@ -29,14 +25,14 @@ public class MenuPrincipal {
      */
     public void mostrar() {
         System.out.println("\n╔════════════════════════════════════════╗");
-        System.out.println("║     🏪 TIENDA ESCOLAR - MENÚ PRINCIPAL║");
+        System.out.println("║     TIENDA ESCOLAR - MENÚ PRINCIPAL║");
         System.out.println("╚════════════════════════════════════════╝");
-        System.out.println("1. 📝 Registrar nuevo producto");
-        System.out.println("2. 📦 Ver todos los productos");
-        System.out.println("3. 🛒 Realizar una compra");
-        System.out.println("4. 📋 Ver historial de compras");
-        System.out.println("5. 💰 Ver total de ventas");
-        System.out.println("6. ❌ Salir");
+        System.out.println("1. Registrar nuevo producto");
+        System.out.println("2. Ver todos los productos");
+        System.out.println("3. Realizar una compra");
+        System.out.println("4. Ver historial de compras");
+        System.out.println("5. Ver total de ventas");
+        System.out.println("6. Salir");
         System.out.println("══════════════════════════════════════");
         System.out.print("Selecciona una opción: ");
     }
@@ -45,7 +41,7 @@ public class MenuPrincipal {
      * Ejecuta el programa principal
      */
     public void ejecutar() {
-        System.out.println("\n🎉 ¡Bienvenido a la Tienda Escolar!");
+        System.out.println("\n¡Bienvenido a la Tienda Escolar!");
         
         while (ejecutando) {
             mostrar();
@@ -71,7 +67,7 @@ public class MenuPrincipal {
                     salir();
                     break;
                 default:
-                    System.out.println("❌ Opción no válida. Intenta de nuevo.");
+                    System.out.println("Opción no válida. Intenta de nuevo.");
             }
         }
     }
@@ -89,7 +85,7 @@ public class MenuPrincipal {
             double precio = Double.parseDouble(scanner.nextLine().trim());
             gestorProductos.registrarProducto(nombre, precio);
         } catch (NumberFormatException e) {
-            System.out.println("❌ Error: Debes ingresar un precio válido (número)");
+            System.out.println("Error: Debes ingresar un precio válido (número)");
         }
     }
 
@@ -98,7 +94,7 @@ public class MenuPrincipal {
      */
     private void realizarCompra() {
         if (gestorProductos.obtenerCantidad() == 0) {
-            System.out.println("❌ No hay productos disponibles para comprar");
+            System.out.println("No hay productos disponibles para comprar");
             return;
         }
 
@@ -119,30 +115,30 @@ public class MenuPrincipal {
                     Producto producto = gestorProductos.buscarProducto(id);
                     if (producto != null) {
                         itemsCompra.add(producto);
-                        System.out.println("✅ " + producto.getNombre() + " agregado al carrito");
+                        System.out.println(producto.getNombre() + " agregado al carrito");
                     } else {
-                        System.out.println("❌ Producto no encontrado");
+                        System.out.println("Producto no encontrado");
                     }
                 }
             } catch (NumberFormatException e) {
-                System.out.println("❌ Error: Debes ingresar un número válido");
+                System.out.println("Error: Debes ingresar un número válido");
             }
         }
 
         if (!itemsCompra.isEmpty()) {
             double total = gestorCompras.calcularTotal(itemsCompra);
             System.out.println("\n" + "─".repeat(40));
-            System.out.println("📦 Items: " + itemsCompra.size());
+            System.out.println(" Items: " + itemsCompra.size());
             for (Producto p : itemsCompra) {
                 System.out.println("   • " + p.getNombre() + " - $" + String.format("%.2f", p.getPrecio()));
             }
             System.out.println("─".repeat(40));
-            System.out.println("💰 TOTAL A PAGAR: $" + String.format("%.2f", total));
+            System.out.println("TOTAL A PAGAR: $" + String.format("%.2f", total));
             System.out.println("─".repeat(40));
             
             gestorCompras.registrarCompra(itemsCompra, total);
         } else {
-            System.out.println("❌ Compra cancelada (sin items)");
+            System.out.println("Compra cancelada (sin items)");
         }
     }
 
@@ -152,7 +148,7 @@ public class MenuPrincipal {
     private void mostrarTotalVentas() {
         double totalVentas = gestorCompras.calcularTotalVentas();
         System.out.println("\n" + "═".repeat(40));
-        System.out.println("💵 TOTAL DE VENTAS DEL DÍA: $" + String.format("%.2f", totalVentas));
+        System.out.println(" TOTAL DE VENTAS DEL DÍA: $" + String.format("%.2f", totalVentas));
         System.out.println("═".repeat(40) + "\n");
     }
 
@@ -160,8 +156,8 @@ public class MenuPrincipal {
      * Finaliza la aplicación
      */
     private void salir() {
-        System.out.println("\n👋 ¡Gracias por usar la Tienda Escolar!");
-        System.out.println("📊 Total de ventas: $" + String.format("%.2f", gestorCompras.calcularTotalVentas()));
+        System.out.println("\n Gracias por usar la Tienda Escolar!");
+        System.out.println("Total de ventas: $" + String.format("%.2f", gestorCompras.calcularTotalVentas()));
         ejecutando = false;
         scanner.close();
     }
