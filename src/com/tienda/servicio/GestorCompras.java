@@ -49,7 +49,7 @@ public class GestorCompras {
         if (items != null && !items.isEmpty()) {
             Compra compra = new Compra(items, total);
             historialCompras.add(compra);
-            System.out.println("✅ Compra registrada exitosamente");
+            System.out.println("Compra registrada exitosamente");
         }
     }
 
@@ -65,10 +65,10 @@ public class GestorCompras {
      */
     public void mostrarHistorial() {
         if (historialCompras.isEmpty()) {
-            System.out.println("📋 No hay compras registradas aún");
+            System.out.println("No hay compras registradas aún");
             return;
         }
-        System.out.println("\n📋 === HISTORIAL DE COMPRAS ===");
+        System.out.println("\n === HISTORIAL DE COMPRAS ===");
         for (int i = 0; i < historialCompras.size(); i++) {
             System.out.println("Compra #" + (i + 1) + ": " + historialCompras.get(i));
         }
