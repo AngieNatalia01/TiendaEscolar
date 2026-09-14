@@ -1,9 +1,5 @@
 package com.tienda.modelo;
 
-/**
- * Clase que representa un producto en la tienda escolar
- * Módulo: PRODUCTOS
- */
 public class Producto {
     private int id;
     private String nombre;
