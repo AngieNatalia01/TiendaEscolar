@@ -25,7 +25,7 @@ public class MenuPrincipal {
      */
     public void mostrar() {
         System.out.println("\n╔════════════════════════════════════════╗");
-        System.out.println("║     TIENDA ESCOLAR - MENÚ PRINCIPAL║");
+        System.out.println("║     TIENDA ESCOLAR - MENÚ PRINCIPAL    ║");
         System.out.println("╚════════════════════════════════════════╝");
         System.out.println("1. Registrar nuevo producto");
         System.out.println("2. Ver todos los productos");
